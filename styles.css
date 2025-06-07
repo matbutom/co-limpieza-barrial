@@ -1,9 +1,52 @@
+/* === FONT FACE DEFINITIONS === */
+@font-face {
+  font-family: 'PPRadioGrotesk';
+  src: url('assets/fonts/PPRadioGrotesk-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PPRadioGrotesk';
+  src: url('assets/fonts/PPRadioGrotesk-BlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PPRadioGrotesk';
+  src: url('assets/fonts/PPRadioGrotesk-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PPRadioGrotesk';
+  src: url('assets/fonts/PPRadioGrotesk-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PPRadioGrotesk';
+  src: url('assets/fonts/PPRadioGrotesk-Ultralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
 :root {
   --principal: #19462a;
   --amarillo: #d6f14c;
   --barrio-texto: #e6f6ab;
   --bg-sepia: #c7b487;
-  --font-main: 'Inter', Arial, sans-serif;
+  --font-main: 'PPRadioGrotesk', Arial, sans-serif;
+}
+
+/* Fondo verde superior que cubre toda el área */
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 300px; /* Ajusta este valor según el diseño y pruebas */
+  background: var(--principal);
+  z-index: 0;
 }
 
 html, body {
@@ -13,31 +56,35 @@ html, body {
   background: var(--principal);
   color: var(--amarillo);
   height: 100%;
+  box-sizing: border-box;
 }
 
 .header {
-  width: 98%;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
   position: relative;
-  padding: 30px 0px 0 0px;
-  z-index: 10;
-  background: var(--principal);
+  padding: 40px 30px 0 0px;
+  z-index: 20;
+  background: transparent; /* Ahora el fondo lo da .header-bg */
+  box-sizing: border-box;
 }
 
 .logo {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  z-index: 30;
   font-size: 2.4rem;
   color: var(--amarillo);
 }
 
-.logo-icon {
-  display: inline-block;
-  background: rgba(214,241,76,0.2);
-  border-radius: 50%;
-  padding: 5px 20px;
-  font-weight: bold;
-  margin-left: 40px;
+.logo-img {
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin: 0;
 }
 
 .nav ul {
@@ -57,11 +104,13 @@ html, body {
   font-weight: 500;
   font-size: 1rem;
   transition: background 0.2s;
+  font-family: var(--font-main);
 }
 
 .nav li.active {
   background: var(--amarillo);
   color: var(--principal);
+  font-weight: 900;
 }
 
 .nav li:hover:not(.active):not(.search) {
@@ -88,7 +137,7 @@ html, body {
   width: 540px;
   height: 190px;
   background: var(--principal);
-  z-index: 5;
+  z-index: 10;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -99,10 +148,11 @@ html, body {
 .titulo-rect h1 {
   color: var(--amarillo);
   font-size: 4rem;
-  font-weight: bold;
+  font-weight: 900;
   margin: 0;
   letter-spacing: 0em;
   line-height: 1.05;
+  font-family: var(--font-main);
 }
 
 .right-info {
@@ -110,10 +160,12 @@ html, body {
   top: 200px;
   right: 30px;
   z-index: 6;
-  color: #fff;
+  color: #f6ffcc;
   font-size: 1.3rem;
-  max-width: 350px;
+  max-width: 300px;
   text-align: right;
+  font-family: var(--font-main);
+  font-weight: 200;
 }
 
 .hero-area {
@@ -125,19 +177,20 @@ html, body {
   overflow: hidden;
 }
 
-.hero-bg-placeholder {
+/* Imagen de fondo con efecto sepia y blend */
+.hero-bg-img {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: var(--bg-sepia);
-  opacity: 0.55;
-  color: #444;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  position: absolute;
-  left: 0; top: 0;
-  z-index: 1;
+  background-image: url('assets/images/barrio-republica-universitario-santiago.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  filter: sepia(0.8) brightness(0.8) contrast(1.1);
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  pointer-events: none;
 }
 
 .residuo {
@@ -177,10 +230,11 @@ html, body {
 .barrio-republica {
   position: absolute;
   left: 18px;
-  bottom: 40px;
+  bottom: 20px;
   color: var(--barrio-texto);
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: var(--font-main);
+  font-weight: 100;
   line-height: 1.05;
   z-index: 8;
   letter-spacing: 0.02em;
