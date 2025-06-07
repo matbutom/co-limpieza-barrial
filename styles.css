@@ -1,0 +1,228 @@
+:root {
+  --principal: #19462a;
+  --amarillo: #d6f14c;
+  --barrio-texto: #e6f6ab;
+  --bg-sepia: #c7b487;
+  --font-main: 'Inter', Arial, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background: var(--principal);
+  color: var(--amarillo);
+  height: 100%;
+}
+
+.header {
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding: 30px 0px 0 0px;
+  z-index: 10;
+  background: var(--principal);
+}
+
+.logo {
+  font-size: 2.4rem;
+  color: var(--amarillo);
+}
+
+.logo-icon {
+  display: inline-block;
+  background: rgba(214,241,76,0.2);
+  border-radius: 50%;
+  padding: 5px 20px;
+  font-weight: bold;
+  margin-left: 40px;
+}
+
+.nav ul {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  background: none;
+  color: var(--amarillo);
+  padding: 10px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.nav li.active {
+  background: var(--amarillo);
+  color: var(--principal);
+}
+
+.nav li:hover:not(.active):not(.search) {
+  background: #c3e13f;
+  color: var(--principal);
+}
+
+.nav .search {
+  background: none;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.nav .search-icon {
+  font-size: 1.2em;
+}
+
+.titulo-rect {
+  position: absolute;
+  top: 110px;
+  left: 40px;
+  width: 540px;
+  height: 190px;
+  background: var(--principal);
+  z-index: 5;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px 0 0 0px;
+  box-sizing: border-box;
+}
+
+.titulo-rect h1 {
+  color: var(--amarillo);
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 0em;
+  line-height: 1.05;
+}
+
+.right-info {
+  position: absolute;
+  top: 200px;
+  right: 30px;
+  z-index: 6;
+  color: #fff;
+  font-size: 1.3rem;
+  max-width: 350px;
+  text-align: right;
+}
+
+.hero-area {
+  width: 100vw;
+  height: 460px;
+  position: relative;
+  margin-top: 220px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.hero-bg-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-sepia);
+  opacity: 0.55;
+  color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  position: absolute;
+  left: 0; top: 0;
+  z-index: 1;
+}
+
+.residuo {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  background: var(--amarillo);
+  border-radius: 50%;
+  z-index: 4;
+  box-shadow: 0 0 0 6px rgba(214, 241, 76, 0.15);
+}
+
+.residuo1 { left: 90px; top: 15px; }
+.residuo2 { left: 310px; top: 240px; }
+.residuo3 { left: 670px; top: 45px; }
+.residuo4 { right: 160px; top: 160px; }
+
+.corner-triangle {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 300px;
+  height: 300px;
+  background: transparent;
+  z-index: 6;
+  overflow: hidden;
+  pointer-events: none;
+}
+.corner-triangle::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-bottom: 300px solid var(--principal);
+  border-right: 300px solid transparent;
+}
+
+.barrio-republica {
+  position: absolute;
+  left: 18px;
+  bottom: 40px;
+  color: var(--barrio-texto);
+  font-size: 2rem;
+  font-family: var(--font-main);
+  line-height: 1.05;
+  z-index: 8;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  background: none;
+  padding: 0;
+}
+
+@media (max-width: 1000px) {
+  .titulo-rect {
+    width: 340px;
+    height: 120px;
+    padding-left: 18px;
+    padding-top: 18px;
+  }
+  .titulo-rect h1 { font-size: 1.5rem; }
+  .right-info { font-size: 1rem; right: 18px; top: 90px; }
+  .hero-area { height: 220px; }
+  .corner-triangle, .corner-triangle::before { width: 65px; height: 65px; border-bottom-width: 65px; border-right-width: 65px; }
+  .barrio-republica { font-size: 0.7rem; left: 8px; bottom: 4px; }
+  .residuo { width: 50px; height: 50px; }
+  .residuo1 { left: 40px; top: 7px; }
+  .residuo2 { left: 90px; top: 110px; }
+  .residuo3 { left: 220px; top: 18px; }
+  .residuo4 { right: 55px; top: 65px; }
+}
+
+@media (max-width: 700px) {
+  .header { padding: 10px 10px 0 10px; }
+  .titulo-rect {
+    position: static;
+    width: 100%;
+    max-width: 100vw;
+    min-width: unset;
+    height: auto;
+    padding: 15px 0 0 10px;
+  }
+  .right-info {
+    position: static;
+    text-align: left;
+    margin: 10px 0 0 10px;
+    right: unset; top: unset;
+  }
+  .hero-area { height: 120px; margin-top: 30px; }
+}
