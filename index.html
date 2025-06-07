@@ -2,23 +2,27 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1366, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CO - Limpieza Barrial</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Fondo verde superior para evitar cortes en el header -->
-  <div class="header-bg"></div>
-  <header class="header">
+  <!-- CABECERA VERDE: logo, hamburguesa, título y subtítulo -->
+  <header class="cabecera-verde">
     <div class="logo">
       <img src="assets/images/logo_icon_1.png" alt="Logo Co-Limpieza Barrial" class="logo-img">
     </div>
-    <!-- Hamburguesa para móvil -->
     <button class="hamburger" id="hamburger" aria-label="Abrir menú">
       <span></span>
       <span></span>
       <span></span>
     </button>
+    <div class="titulo-rect">
+      <h1>CO - LIMPIEZA<br>BARRIAL</h1>
+    </div>
+    <div class="right-info">
+      ↗ Mapeo e información sobre el manejo básico de basura
+    </div>
     <nav class="nav" id="nav">
       <ul>
         <li class="active">INICIO</li>
@@ -30,25 +34,19 @@
       </ul>
     </nav>
   </header>
+  <!-- HERO: imagen y residuos -->
   <main>
-    <div class="titulo-rect">
-      <h1>CO - LIMPIEZA<br>BARRIAL</h1>
-    </div>
-    <div class="right-info">
-      <span>↗ Mapeo e información sobre el manejo básico de basura</span>
-    </div>
     <section class="hero-area">
-      <!-- Imagen de fondo con efecto sepia -->
       <div class="hero-bg-img"></div>
+      <!-- Puedes agregar imágenes reales en cada residuo si quieres -->
       <div class="residuo residuo1"></div>
       <div class="residuo residuo2"></div>
       <div class="residuo residuo3"></div>
       <div class="residuo residuo4"></div>
-      <div class="corner-triangle"></div>
-      <div class="barrio-republica">
-        Barrio<br>República
-      </div>
     </section>
+    <!-- Triángulo y texto solo para desktop (ocultos en mobile) -->
+    <div class="corner-triangle"></div>
+    <div class="barrio-republica">Barrio<br>República</div>
   </main>
   <script src="script.js"></script>
 </body>
